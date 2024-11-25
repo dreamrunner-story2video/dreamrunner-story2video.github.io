@@ -147,7 +147,34 @@
 		</div>
 	</section>
 
-	<div class="gallery-container">
+	<section class="section">
+		<div class="container is-max-desktop" style="margin-top: -100px;">
+			<div class="columns is-centered has-text-centered">
+				<div class="column is-four-fifths">
+					<video controls muted autoplay="autoplay" loop="loop">
+						<source src="./static/teaser.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<div class="content has-text-justified">
+				
+					<p>
+						Figure 1: Overall pipeline for <b>DreamRunner</b>. (1) <b>plan generation stage</b>: we employ an LLM to craft a hierarchical video plan (i.e.,
+						“High-Level Plan” and “Fine-Grained Plan”) from a user-provided generic story narration. (2.1) <b>retrieval and prior learning
+							stage</b>: we retrieve videos relevant to the desired motions from a video database for learning the motion prior through test-time finetuning. (2.2) <b>subject prior learning stage</b>: we use reference images for learning the subject prior through test-time fine-tuning. (3) <b>video generation with region-based diffusion stage</b>: we equipt diffusion model with a novel spatial-temporal region-based 3D attention and prior injection module (i.e., SR3AI) for video generation with fine-grained control.
+							<br><br>	
+						<div>
+							<p>
+						</p>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+		
+	<div class="gallery-container" style="margin-top: -50px;">
         <button class="arrow left" onclick="prevVideo()"><i class="fas fa-chevron-left"></i></button>
         <div class="video-container" id="videoContainer">
             <div class="video-item">
@@ -229,42 +256,13 @@
 				</div>
 			</div>
 		</div>
-
-	<!-- </section> -->
-
-	<!-- <section class="hero teaser">
-		<!== <div class="container is-max-desktop"> ==>
-		<div class="container">
-			<div class="hero-body" style="display: flex; justify-content: center;">
-				<img src="./static/teaser.png" style="width: 100%;">
-			</div>
-		<p>
-			Overall pipeline for DREAMRUNNER. (1) <b>plan generation stage</b>: we employ an LLM to craft a hierarchical video plan (i.e.,
-			“High-Level Plan” and “Fine-Grained Plan”) from a user-provided generic story narration. (2.1) <b>retrieval and prior learning
-				stage</b>: we retrieve videos relevant to the desired motions from a video database for learning the motion prior through test-time finetuning. (2.2) <b>subject prior learning stage</b>: we use reference images for learning the subject prior through test-time fine-tuning. (3) <b>video generation with region-based diffusion stage</b>: we equipt diffusion model with a novel spatial-temporal region-based 3D attention and prior injection module (i.e., SR3AI) for video generation with fine-grained control.
-		</p>
-		</div> -->
-		
-	<!-- </section> -->
 	
 	<section class="section">
 		<div class="container is-max-desktop">
 			<div class="columns is-centered has-text-centered">
 				<div class="column is-four-fifths">
 
-					<h2 class="title is-3">Method</h2>
-				<img src="./static/teaser.gif" style="width: 100%;">
-				<div class="content has-text-justified">
-		
-				<p>
-					Figure 1: Overall pipeline for <b>DreamRunner</b>. (1) <b>plan generation stage</b>: we employ an LLM to craft a hierarchical video plan (i.e.,
-					“High-Level Plan” and “Fine-Grained Plan”) from a user-provided generic story narration. (2.1) <b>retrieval and prior learning
-						stage</b>: we retrieve videos relevant to the desired motions from a video database for learning the motion prior through test-time finetuning. (2.2) <b>subject prior learning stage</b>: we use reference images for learning the subject prior through test-time fine-tuning. (3) <b>video generation with region-based diffusion stage</b>: we equipt diffusion model with a novel spatial-temporal region-based 3D attention and prior injection module (i.e., SR3AI) for video generation with fine-grained control.
-						<br><br>	
-					<div>
-						<p>
-					
-						
+					<h2 class="title is-3">Method</h2>						
 					<img src="./static/sr3ai.png" alt="sr3ai" width="80%" style="display: block; margin: auto;">
 						<p>
 							Figure 2: Implementation details for region-based diffusion with SR3AI. We extend the vanilla self-attention mechanism to spatial-temporal region-based 3D attention (upper  <span style="color:rgb(255, 140, 0);">orange</span> part), which is capable of aligning different regions with their respective text descriptions via
