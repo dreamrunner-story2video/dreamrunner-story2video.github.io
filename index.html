@@ -174,7 +174,7 @@
 	</section>
 
 		
-	<div class="gallery-container" style="margin-top: -50px;">
+	<!-- <div class="gallery-container" style="margin-top: -50px;">
         <button class="arrow left" onclick="prevVideo()"><i class="fas fa-chevron-left"></i></button>
         <div class="video-container" id="videoContainer">
             <div class="video-item">
@@ -213,28 +213,140 @@
                     <h4>The Astronaut's Day in the Space</h4>
                 </div>
             </div>
+            <div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/teddy.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>The Astronaut's Day in the Space</h4>
+                </div>
+            </div>
         </div>
         <button class="arrow right" onclick="nextVideo()"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <script>
-        let currentIndex = 0;
-        const videoContainer = document.getElementById('videoContainer');
-        const totalVideos = Math.ceil(document.querySelectorAll('.video-item').length / 2);
-
-        function updateGallery() {
-            videoContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function prevVideo() {
-            currentIndex = (currentIndex === 0) ? totalVideos - 1 : currentIndex - 1;
-            updateGallery();
-        }
-
-        function nextVideo() {
-            currentIndex = (currentIndex === totalVideos - 1) ? 0 : currentIndex + 1;
-            updateGallery();
-        }
-    </script>
+    </div> -->
+    <div class="gallery-container" style="margin-top: -50px;">
+		<button class="arrow left" onclick="prevVideo()"><i class="fas fa-chevron-left"></i></button>
+		<div class="video-container" id="videoContainer">
+			<div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/witch_and_cat.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>The Witch's Adventure with Her Cat</h4>
+                </div>
+            </div>
+            <div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/warrior_and_dog.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>The Warrior's Day of Training with His Dog</h4>
+                </div>
+            </div>
+            <div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/mermaid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>The Mermaid’s Ocean Journey</h4>
+                </div>
+            </div>
+            <div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/astronaut.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>The Astronaut's Day in the Space</h4>
+                </div>
+            </div>
+            <div class="video-item">
+                <video controls muted autoplay="autoplay" loop="loop">
+                    <source src="./static/videos/story/teddy.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="card-body text-center">
+                    <h4>Teddy's Cozy Day</h4>
+                </div>
+		</div>
+		</div>
+		
+		<button class="arrow right" onclick="nextVideo()"><i class="fas fa-chevron-right"></i></button>
+	</div>
+		<!-- 导航圆点容器 -->
+		<div class="navigation-dots" id="navigationDots"></div>
+	</div>
+	
+	<style>
+		.navigation-dots {
+			text-align: center;
+			margin-top: 10px;
+		}
+	
+		.navigation-dots .dot {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			margin: 0 5px;
+			background-color: gray;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	
+		.navigation-dots .dot.active {
+			background-color: black;
+			width: 12px;
+			height: 12px;
+		}
+	</style>
+	
+	<script>
+		let currentIndex = 0;
+		const videoContainer = document.getElementById('videoContainer');
+		const totalVideos = Math.ceil(document.querySelectorAll('.video-item').length / 2);
+	
+		// 获取导航栏容器
+		const navigationDots = document.getElementById('navigationDots');
+	
+		// 生成导航圆点
+		for (let i = 0; i < totalVideos; i++) {
+			const dot = document.createElement('span');
+			dot.classList.add('dot');
+			if (i === currentIndex) {
+				dot.classList.add('active');
+			}
+			dot.addEventListener('click', () => {
+				currentIndex = i;
+				updateGallery();
+			});
+			navigationDots.appendChild(dot);
+		}
+	
+		function updateGallery() {
+			videoContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+	
+			// 更新导航圆点的激活状态
+			const dots = document.querySelectorAll('.navigation-dots .dot');
+			dots.forEach((dot, index) => {
+				dot.classList.toggle('active', index === currentIndex);
+			});
+		}
+	
+		function prevVideo() {
+			currentIndex = (currentIndex === 0) ? totalVideos - 1 : currentIndex - 1;
+			updateGallery();
+		}
+	
+		function nextVideo() {
+			currentIndex = (currentIndex === totalVideos - 1) ? 0 : currentIndex + 1;
+			updateGallery();
+		}
+	</script>
+	
 		
 
 	<section class="section">
